@@ -337,11 +337,9 @@ function SwipeTutorial() {
 function WishlistItem({
   item,
   onRemove,
-  index,
 }: {
   item: WishlistItem;
   onRemove: (id: string) => void;
-  index: number;
 }) {
   const x = useMotionValue(0);
   const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5]);
@@ -360,6 +358,8 @@ function WishlistItem({
     const timer = setTimeout(() => setShowTip(false), 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  console.log(showTip);
 
   const { addToCart } = useCart();
 
